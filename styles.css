@@ -49,6 +49,10 @@ h1{
     px;
 }
 
+input[type="submit"] { 
+    display: none;
+}
+
 .main svg{
     color: rgb(255, 255, 255);
     width: 25px;
