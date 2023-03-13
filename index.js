@@ -8,6 +8,14 @@ var today=weekday[d.getDay()]; //getDay() returns a number
 
 Day.innerHTML=today;
 
+//call the storage so everything stays the same as we left it
+let list = JSON.parse(localStorage.getItem("list"));
+if(list){
+    list.forEach((task)=>{
+        ToDoList(task);
+    });
+}
+
 //Submit:
 
 const form = document.querySelector("form");
@@ -17,13 +25,17 @@ const List = document.querySelector(".AddedLists");
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    AddToDoList();
+    ToDoList();
 });
 
 
-function AddToDoList(){
+function ToDoList(task){
     const error = document.querySelector(".error");
     var text = input.value;//take task submited
+
+    if(task){
+        text= task.toDo;
+    }
 
 //if there is no input :
     if(text==''){
@@ -38,6 +50,10 @@ function AddToDoList(){
     
 //create a task every time we submit it
     const to_do = document.createElement("div");//create div
+
+    if(task && task.checked){
+        to_do.classList.add("Done");
+    }
 
     to_do.classList.add("to-do");//add class to-do so it can be styled
 
@@ -61,6 +77,7 @@ function AddToDoList(){
             }else{
                 Checkbtn.parentNode.classList.replace("Done","to-do");
             }
+            UpdateLocalStorage();
         });  
     });
 
@@ -70,8 +87,29 @@ function AddToDoList(){
     trashs.forEach((trash)=>{
         trash.addEventListener("click", () => {
             trash.parentNode.remove();
+            UpdateLocalStorage();
         });
-    })
+    });
+
+UpdateLocalStorage();
+}
+
+
+
+//storing it (even if we refresh the page it's there)
+function UpdateLocalStorage(){
+    list = [];
+    const Lists = document.querySelectorAll('.to-do, .Done');
+    
+    Lists.forEach((myList)=>{
+        const p = myList.querySelector("p");
+        storage.push({
+            toDo: p.innerText,
+            checked: myList.classList.contains("Done"),
+        });
+    });
+    localStorage.setItem("list",JSON.stringify(list));//converting the list array into a JSON string before storing it in localStorage with the key "list". 
+    // (localStorage can only store string values).
 }
 
 
