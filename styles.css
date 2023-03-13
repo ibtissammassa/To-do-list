@@ -12,8 +12,8 @@ body{
     height: fit-content;
     display: flex;
     justify-content: center;
-    background-color: #5529DC;
     font-family: 'Outfit', sans-serif;
+    background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
 }
 
 .container{
@@ -36,7 +36,7 @@ img{
 h1{
     font-size: 64px;
     color: white;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 35px;
     letter-spacing: 1.5px;
 }
@@ -165,8 +165,6 @@ p{
     height: 0;
     transition: opacity 0.2s ease-out, height 0.2s ease-out;
 }  
-
-
 
 @media screen and (max-width: 800px){
     .container{
