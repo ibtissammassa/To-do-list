@@ -22,10 +22,22 @@ form.addEventListener("submit",(e)=>{
 
 
 function AddToDoList(){
+    const error = document.querySelector(".error");
+    var text = input.value;//take task submited
 
+//if there is no input :
+    if(text==''){
+        error.style.display = 'block';
+        input.style.border = 'red solid 1px';
+        return;
+    }else{
+        error.style.display = 'none';
+        input.style.border = 'none';
+    }
+
+    
 //create a task every time we submit it
     const to_do = document.createElement("div");//create div
-    var text = input.value;//take task submited
 
     to_do.classList.add("to-do");//add class to-do so it can be styled
 
