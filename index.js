@@ -82,7 +82,10 @@ function ToDoList(task){
 
     trashs.forEach((trash)=>{
         trash.addEventListener("click", () => {
-            trash.parentNode.remove();
+            trash.parentNode.classList.add("task__item--deleted");//to animate before deleting it
+            setTimeout( () => {
+                trash.parentNode.remove();
+            },200);
             UpdateLocalStorage();
         });
     });

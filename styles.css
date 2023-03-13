@@ -1,51 +1,26 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
 *{
     margin: 0px;
     padding: 0px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-transition: .3s linear;
-    -o-transition: .3s linear;
+    box-sizing: border-box;
     transition: .3s linear;
 }
 
 body{
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
     height: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     background-color: #5529DC;
     font-family: 'Outfit', sans-serif;
 }
 
 .container{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 8%;
     margin-bottom: 8%;
 }
@@ -55,8 +30,7 @@ img{
     height: 109px;
     border-radius: 50px;
     border: none;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 h1{
@@ -87,26 +61,6 @@ h1{
     width: 505px;
 }
 
-#Add::-webkit-input-placeholder{
-    color: #ecebeb;
-    font-family: 'Outfit',sans-serif;
-}
-
-#Add::-moz-placeholder{
-    color: #ecebeb;
-    font-family: 'Outfit',sans-serif;
-}
-
-#Add:-ms-input-placeholder{
-    color: #ecebeb;
-    font-family: 'Outfit',sans-serif;
-}
-
-#Add::-ms-input-placeholder{
-    color: #ecebeb;
-    font-family: 'Outfit',sans-serif;
-}
-
 #Add::placeholder{
     color: #ecebeb;
     font-family: 'Outfit',sans-serif;
@@ -124,8 +78,6 @@ label{
 
 .main svg{
     color: rgb(255, 255, 255);
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
     width: fit-content;
     height: 25px;
     cursor: pointer;
@@ -208,7 +160,11 @@ p{
     text-decoration: line-through;
 }
 
-
+.task__item--deleted {
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.2s ease-out, height 0.2s ease-out;
+}  
 
 
 
