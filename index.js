@@ -8,7 +8,7 @@ var today=weekday[d.getDay()]; //getDay() returns a number
 
 Day.innerHTML=today;
 
-//call the storage so everything stays the same as we left it
+//get the storage so everything stays the same as we left it
 let list = JSON.parse(localStorage.getItem("list"));
 if(list){
     list.forEach((task)=>{
