@@ -17,12 +17,7 @@ if(list){
 }
 
 //Submit:
-
 const form = document.querySelector("form");
-const input = document.getElementById("Add");
-const List = document.querySelector(".AddedLists");
-
-
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
     ToDoList();
@@ -30,8 +25,10 @@ form.addEventListener("submit",(e)=>{
 
 
 function ToDoList(task){
+    const List = document.querySelector(".AddedLists");
+    const input = document.getElementById("Add");
     const error = document.querySelector(".error");
-    const text = input.value;//take task submited
+    let text = input.value;//take task submited
 
     if(task){
         text= task.toDo;
